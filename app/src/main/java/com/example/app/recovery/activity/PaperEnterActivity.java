@@ -143,7 +143,7 @@ public class PaperEnterActivity extends Activity {
             @Override
             public void run() {
                 System.out.println("send garage begin");
-                send_garage();
+                fetch_garage();
                 Message companyListMesg = garage_handler.obtainMessage();
                 garage_handler.sendMessage(companyListMesg);
             }
@@ -152,7 +152,7 @@ public class PaperEnterActivity extends Activity {
             @Override
             public void run() {
                 System.out.println("send company begin");
-                send_company();
+                fetch_company();
                 Message companyListMesg = company_handler.obtainMessage();
                 company_handler.sendMessage(companyListMesg);
             }
@@ -219,7 +219,7 @@ public class PaperEnterActivity extends Activity {
         };
     }
 
-    public void send_garage() {
+    public void fetch_garage() {
         System.out.println(Const.URL_GARAGE_LIST);
         HttpClient httpClient = new DefaultHttpClient();
         HttpUriRequest httpRequest = new HttpGet(Const.URL_GARAGE_LIST);
@@ -240,7 +240,7 @@ public class PaperEnterActivity extends Activity {
         }
     }
 
-    public void send_company() {
+    public void fetch_company() {
         System.out.println(Const.URL_COMPANY_LIST);
         HttpClient httpClient = new DefaultHttpClient();
         HttpUriRequest httpRequest = new HttpGet(Const.URL_COMPANY_LIST);
