@@ -1,2 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/local/env/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_0890cbea7a6a22c64b4cad7175a495641d70409a.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/hamcrest-core-1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="860340562250678d1a344907ac75754e259cdb14">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/hamcrest-core-1.1_3a8902fbcf6f7e1340f6664a4176dbe3c617d67a.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/commons-logging-1.2.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4bfc12adfe4842bf07b657f0369c4cb522955686">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/commons-logging-1.2_2802a289ae5fcefe7a68e97de27dae231431f5b4.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/aliyun-sdk-oss-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="42e910822925e56fb80c76fa90c0de6c5ba52360">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/aliyun-sdk-oss-2.2.3_dcb598d2667e5775131b6ceccc248e89e65fcbe0.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.1_9bb578b084f5283b1132c2b0c61fbc4e34fe56f0.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.1_054c437d0bf4d229735263565c8400dadda26f82.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/httpcore-4.4.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f5aa318bda4c6c8d688c9d00b90681dcd82ce636">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/httpcore-4.4.1_5e403d8a5fa79bbde8375ddeaaa6bd55b8bc117b.jar" />
+    </item>
+    <item
+        jar="/Users/app/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_27ae2cfd71a54ba74bd00465a6e0be2481f53cf8.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_521b83776b4152abac079bc4831a405dbbd65c4a.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/commons-codec-1.9.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/commons-codec-1.9_8c37fd9ccd59d94e1e1a1478ba8aa8f9e3335930.jar" />
+    </item>
+    <item
+        jar="/Users/app/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_b596cbfa7c5f8e70ff54718f6b1d6e8f0698af49.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_1f243017917614b5e00da12c2cd645e22e88e3d8.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.1_48532ea621c6861f87a0da28b2ef6ef6372e0b55.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/jdom-1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1d04c0f321ea337f3661cf7ede8f4c6f653a8fdd">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/jdom-1.1_5b4899819ded5064b908f7182bb8088a425c147b.jar" />
+    </item>
+    <item
+        jar="/Users/local/android/Recovery/app/libs/httpclient-4.4.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="016d0bc512222f1253ee6b64d389c84e22f697f0">
+        <dex dex="/Users/local/android/Recovery/app/build/intermediates/pre-dexed/debug/httpclient-4.4.1_f3de014dbfe0d0f1bb5b643ae663b094b1814122.jar" />
+    </item>
+
+</items>

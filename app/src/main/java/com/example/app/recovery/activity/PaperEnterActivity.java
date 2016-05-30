@@ -1,6 +1,8 @@
 package com.example.app.recovery.activity;
 
 import android.app.Activity;
+import android.graphics.PixelFormat;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -51,6 +53,8 @@ public class PaperEnterActivity extends Activity {
     private String garage_list_str;
     private JSONArray company_list;
     private JSONArray garage_list;
+    private Camera camera;
+    private Boolean isPreview = false;
     private Paper paper = new Paper();
 
     @Override
@@ -62,12 +66,29 @@ public class PaperEnterActivity extends Activity {
         Spinner slt_garage = (Spinner) findViewById(R.id.select_garage_id);
         Spinner slt_company = (Spinner) findViewById(R.id.select_company_id);
         RadioGroup radio_type = (RadioGroup) this.findViewById(R.id.radio_type);
+        Button btn_camera_open = (Button) findViewById(R.id.btn_camera_open);
+        /**
+         * 返回按钮事件
+         */
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+        /**
+         * 拍照按钮事件
+         */
+        btn_camera_open.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //TODO 调用拍照 拍照后在"残值详细"下增加一个新的form表单,form表单中需要显示照片及一个input框
+            }
+        });
+        /**
+         * 录入按钮事件
+         */
         btn_entry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +108,9 @@ public class PaperEnterActivity extends Activity {
                 }).start();
             }
         });
+        /**
+         * radio选择事件
+         */
         radio_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -97,6 +121,9 @@ public class PaperEnterActivity extends Activity {
                 paper.setType(CarType.findType(rb.getText().toString()));
             }
         });
+        /**
+         * 修理厂select选择事件
+         */
         slt_garage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -118,6 +145,9 @@ public class PaperEnterActivity extends Activity {
                 paper.setGarage_id(null);
             }
         });
+        /**
+         * 残保险公司select选择事件
+         */
         slt_company.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -139,6 +169,9 @@ public class PaperEnterActivity extends Activity {
                 paper.setCompany_id(null);
             }
         });
+        /**
+         * fetch修理厂列表
+         */
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -148,6 +181,9 @@ public class PaperEnterActivity extends Activity {
                 garage_handler.sendMessage(companyListMesg);
             }
         }).start();
+        /**
+         * fetch保险公司列表
+         */
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -219,6 +255,9 @@ public class PaperEnterActivity extends Activity {
         };
     }
 
+    /**
+     * fetch garage http
+     */
     public void fetch_garage() {
         System.out.println(Const.URL_GARAGE_LIST);
         HttpClient httpClient = new DefaultHttpClient();
@@ -240,6 +279,9 @@ public class PaperEnterActivity extends Activity {
         }
     }
 
+    /**
+     * fetch company http
+     */
     public void fetch_company() {
         System.out.println(Const.URL_COMPANY_LIST);
         HttpClient httpClient = new DefaultHttpClient();
@@ -261,6 +303,9 @@ public class PaperEnterActivity extends Activity {
         }
     }
 
+    /**
+     * post paper http
+     */
     public void post_paper() {
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpRequest = new HttpPost(Const.URL_PAPER_SAVE);
