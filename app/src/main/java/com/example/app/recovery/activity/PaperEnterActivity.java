@@ -19,9 +19,12 @@ import android.widget.Toast;
 
 import com.example.app.recovery.R;
 import com.example.app.recovery.enums.CarType;
+import com.example.app.recovery.http.HttpManager;
+import com.example.app.recovery.http.HttpManagerFactory;
+import com.example.app.recovery.http.HttpResponseHandler;
 import com.example.app.recovery.model.Paper;
 import com.example.app.recovery.service.PaperService;
-import com.example.app.recovery.tools.Const;
+import com.example.app.recovery.tools.ApiConstants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -259,33 +262,64 @@ public class PaperEnterActivity extends Activity {
      * fetch garage http
      */
     public void fetch_garage() {
-        System.out.println(Const.URL_GARAGE_LIST);
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpUriRequest httpRequest = new HttpGet(Const.URL_GARAGE_LIST);
-        HttpResponse httpResponse;
-        try {
-            httpResponse = httpClient.execute(httpRequest);
-            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                System.out.println("finish get success");
-                garage_list_str = EntityUtils.toString(httpResponse.getEntity());
-            } else {
-                System.out.println("finish get fail");
-                garage_list_str = "失败";
+        System.out.println(ApiConstants.URL_GARAGE_LIST);
+        HttpManager httpManager = HttpManagerFactory.getInstance().getHttpManager();
+
+        httpManager.get(ApiConstants.URL_GARAGE_LIST, null, new HttpResponseHandler(PaperEnterActivity.this, false, httpManager) {
+            @Override
+            public void onSuccess(String json) {
+                super.onSuccess(json);
+                Spinner slt_garage = (Spinner) findViewById(R.id.select_garage_id);
+                if (garage_list_str != null) {
+                    System.out.println(garage_list_str);
+                    try {
+//                        System.out.println(msg.obj);
+                        JSONArray jsonArray = new JSONArray(String.valueOf(garage_list_str));
+                        garage_list = jsonArray;
+                        System.out.println(garage_list.toString());
+                        String[] names = new String[garage_list.length()];
+                        for (int i = 0; i < garage_list.length(); i++) {
+                            JSONObject jsonObject2 = (JSONObject) garage_list.opt(i);
+                            System.out.println(jsonObject2.get("name"));
+                            names[i] = (String) jsonObject2.get("name");
+                            Integer garage_id = (Integer) jsonObject2.get("id");
+                            if (i == garage_list.length() - 1) {
+                                paper.setGarage_id(garage_id);
+                            }
+                        }
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(PaperEnterActivity.this, android.R.layout.simple_spinner_item, names);
+                        //绑定 Adapter到控件
+                        slt_garage.setAdapter(adapter);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        });
+//        HttpResponse httpResponse;
+//        try {
+//            httpResponse = httpClient.execute(httpRequest);
+//            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+//                System.out.println("finish get success");
+//                garage_list_str = EntityUtils.toString(httpResponse.getEntity());
+//            } else {
+//                System.out.println("finish get fail");
+//                garage_list_str = "失败";
+//            }
+//        } catch (ClientProtocolException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**
      * fetch company http
      */
     public void fetch_company() {
-        System.out.println(Const.URL_COMPANY_LIST);
+        System.out.println(ApiConstants.URL_COMPANY_LIST);
         HttpClient httpClient = new DefaultHttpClient();
-        HttpUriRequest httpRequest = new HttpGet(Const.URL_COMPANY_LIST);
+        HttpUriRequest httpRequest = new HttpGet(ApiConstants.URL_COMPANY_LIST);
         HttpResponse httpResponse;
         try {
             httpResponse = httpClient.execute(httpRequest);
@@ -308,7 +342,7 @@ public class PaperEnterActivity extends Activity {
      */
     public void post_paper() {
         HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpRequest = new HttpPost(Const.URL_PAPER_SAVE);
+        HttpPost httpRequest = new HttpPost(ApiConstants.URL_PAPER_SAVE);
         HttpResponse httpResponse;
         JSONObject json = new JSONObject();
         try {
